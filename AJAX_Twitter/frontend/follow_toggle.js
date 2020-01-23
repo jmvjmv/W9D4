@@ -33,7 +33,12 @@ class FollowToggle {
   }
 
   handleClick(){
-
+    event.preventDefault();
+    // return $.ajax{
+    //   method: 'POST'
+    //   url: 
+    //   success:
+    // }
   }
 }
 
