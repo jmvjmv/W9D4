@@ -128,12 +128,25 @@ class FollowToggle {
   }
 
   handleClick(){
+    const followToggle = this;
+
     event.preventDefault();
-    // return $.ajax{
-    //   method: 'POST'
-    //   url: 
-    //   success:
-    // }
+
+    if (this.followState === 'followed') {
+      this.followState = 'unfollowing';
+      this.render();
+      APIUtil.unfollowUser(this.userId).then(() => {
+        followToggle.followState = 'unfollowed';
+        followToggle.render();
+      });
+    } else if (this.followState === 'unfollowed') {
+      this.followState = 'following';
+      this.render();
+      APIUtil.followUser(this.userId).then(() => {
+        followToggle.followState = 'followed';
+        followToggle.render();
+      });
+    }
   }
 }
 
