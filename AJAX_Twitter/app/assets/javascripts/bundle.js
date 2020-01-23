@@ -86,25 +86,69 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/follow_toggle.js":
+/*!***********************************!*\
+  !*** ./frontend/follow_toggle.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+class FollowToggle {
+  constructor(el, options) {
+    this.$el = $(el);
+    this.userId = this.$el.data('user-id') || options.userId;
+    this.followState = (this.$el.data('initial-follow-state') ||
+      options.followState);
+    this.render();
+
+    this.$el.on('click', this.handleClick.bind(this));
+  }
+
+  render() {
+    switch (this.followState) {
+      case 'followed':
+        this.$el.prop('disabled', false);
+        this.$el.html('Unfollow!');
+        break;
+      case 'unfollowed':
+        this.$el.prop('disabled', false);
+        this.$el.html('Follow!');
+        break;
+      case 'following':
+        this.$el.prop('disabled', true);
+        this.$el.html('Following...');
+        break;
+      case 'unfollowing':
+        this.$el.prop('disabled', true);
+        this.$el.html('Unfollowing...');
+        break;
+    }
+  }
+
+  handleClick(){
+
+  }
+}
+
+module.exports = FollowToggle;
+
+/***/ }),
+
 /***/ "./frontend/twitter.js":
 /*!*****************************!*\
   !*** ./frontend/twitter.js ***!
   \*****************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module './follow-toggle.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+const FollowToggle = __webpack_require__(/*! ./follow_toggle */ "./frontend/follow_toggle.js");
 
-
-$(function() {
-  $('button.follow-toggle').each( (idx, btn) => {
-    return new !(function webpackMissingModule() { var e = new Error("Cannot find module './follow-toggle.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(btn);
-  });
-
-
+$(function () {
+  $('button.follow-toggle').each((i, btn) => new FollowToggle(btn, {}));
 });
+
 
 /***/ })
 

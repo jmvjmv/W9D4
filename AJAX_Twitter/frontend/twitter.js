@@ -1,9 +1,5 @@
-import FollowToggle from './follow-toggle.js';
+const FollowToggle = require('./follow_toggle');
 
-$(function() {
-  $('button.follow-toggle').each( (idx, btn) => {
-    return new FollowToggle(btn);
-  });
-
-
+$(function () {
+  $('button.follow-toggle').each((i, btn) => new FollowToggle(btn, {}));
 });
