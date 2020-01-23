@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 $(function() {
   $('button.follow-toggle').each( (idx, btn) => {
-    new !(function webpackMissingModule() { var e = new Error("Cannot find module './follow-toggle.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(btn);
+    return new !(function webpackMissingModule() { var e = new Error("Cannot find module './follow-toggle.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(btn);
   });
 
 
