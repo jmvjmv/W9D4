@@ -90,10 +90,21 @@
 /*!*****************************!*\
   !*** ./frontend/twitter.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const requireFollow = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module 'follow-toggle.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module './follow-toggle.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
+
+$(function() {
+  $('button.follow-toggle').each( (idx, btn) => {
+    new !(function webpackMissingModule() { var e = new Error("Cannot find module './follow-toggle.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(btn);
+  });
+
+
+});
 
 /***/ })
 
